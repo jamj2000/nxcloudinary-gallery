@@ -9,7 +9,11 @@ export default async function Home() {
     api_secret: process.env.CLOUDINARY_API_SECRET 
   });
 
-  const result = await cloudinary.api.resources({max_results: 500});
+  const result = await cloudinary.api.resources({
+    max_results: 500,
+    type: 'upload',
+    prefix: 'samples/landscapes'
+  });
   // console.log(result);
   return (
     <main>

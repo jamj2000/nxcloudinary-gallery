@@ -1,6 +1,21 @@
+import {v2 as cloudinary} from 'cloudinary';
+import process from 'node:process'
 
-function Galeria({result}) {
-//   console.log(result);
+
+cloudinary.config({ 
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET 
+});
+
+async function Galeria() {
+
+  const result = await cloudinary.api.resources({
+    max_results: 500,
+    type: 'upload',
+    prefix: 'samples/landscapes'
+  });
+  // console.log(result);
   return (
     <>
     <h1>Galería de imágenes</h1>

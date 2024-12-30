@@ -10,14 +10,8 @@ cloudinary.config({
 
 async function Galeria() {
 
-  const result = await cloudinary.api.resources({
-    max_results: 500,
-    type: 'upload',
-    // prefix: 'samples/landscapes'
-    prefix: 'tienda/productos'
-  });
+  const result = await cloudinary.api.resources_by_asset_folder('pruebas/varios', { max_results: 500 });
   // console.log(result);
-
 
   return (
     <>

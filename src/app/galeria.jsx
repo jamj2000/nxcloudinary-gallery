@@ -10,7 +10,7 @@ cloudinary.config({
 
 async function Galeria() {
 
-  const result = await cloudinary.api.resources_by_asset_folder('pruebas/varios', { max_results: 500 });
+  const result = await cloudinary.api.resources_by_asset_folder('galeria', { max_results: 500 });
   // console.log(result);
 
   return (
